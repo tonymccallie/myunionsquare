@@ -30,8 +30,8 @@
 		<div class="span6">
 			<?php
 				echo $this->Form->input('active',array('class'=>''));
-				echo $this->Form->input('birthday',array('class'=>'span4','minYear'=>1920,'maxYear'=>date('Y')));
-				echo $this->Form->input('hire_date',array('class'=>'span4','minYear'=>1920,'maxYear'=>date('Y')));
+				echo $this->Form->input('birthday',array('class'=>'span4','minYear'=>1920,'maxYear'=>date('Y'),'empty' => true));
+				echo $this->Form->input('hire_date',array('class'=>'span4','minYear'=>1920,'maxYear'=>date('Y'),'empty' => true));
 				echo $this->Form->input('role_id',array('class'=>'span12'));
 			?>
 		</div>

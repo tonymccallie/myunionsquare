@@ -17,6 +17,9 @@
 				<th>
 					<?php echo $this->Paginator->sort('user_id','<i class="icon-sort"></i> User',array('escape'=>false)); ?>
 				</th>
+				<th>
+					<?php echo $this->Paginator->sort('created','<i class="icon-sort"></i> Created',array('escape'=>false)); ?>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,6 +27,7 @@
 			<tr>
 				<td><?php echo $this->Html->link($article['News']['title'],array('action'=>'edit',$article['News']['id'])) ?></td>
 				<td><?php echo $article['User']['first_name'].' '.$article['User']['last_name'] ?></td>
+				<td><?php echo date('M dS h:ia',strtotime($article['News']['created'])) ?></td>
 			</tr>
 		<?php endforeach ?>
 		</tbody>

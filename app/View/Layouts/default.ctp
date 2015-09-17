@@ -60,7 +60,8 @@
 				<?php if(!$loggedIn): ?>
 					Welcome
 				<?php else: ?>
-					<?php echo $USER['User']['first_name'].' '.$USER['User']['last_name'] ?>
+					<div id="self_name"><?php echo $USER['User']['first_name'].' '.$USER['User']['last_name'] ?></div>
+					<div id="self_position"><?php echo $USER['User']['position'] ?></div>
 				<?php endif ?>
 			</div>
 			<div class="content">
@@ -99,17 +100,20 @@
 			</li>
 			<?php endif ?>
 			<?php if($loggedIn): ?>
-			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-calendar"></i> Calendar','/',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/pages/announcements',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-calendar"></i> Calendar','/pages/calendar',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/pages/board',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/pages/directory',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/pages/resources',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/pages/training',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/pages/board',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/pages/photos',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/pages/help',array('escape'=>false)) ?></li>
 			<?php endif ?>
 		</ul>
+		<?php if($loggedIn): ?>
+			<?php echo $this->Html->link('') ?>
+		<?php endif ?>
 	</div>
 
 	<div class="content">

@@ -15,6 +15,7 @@ class User extends AppModel {
 		'LoginToken' => array(
 			'dependent' => true,
 		),
+		'News'
 	);
 
 

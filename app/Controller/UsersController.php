@@ -1,6 +1,8 @@
 <?php
 App::uses('AppController', 'Controller');
 class UsersController extends AppController {
+	public $uses = array('User','News');
+
 	function login() {
 		Authsome::logout();
 		if(empty($this->request->data)) {
@@ -156,7 +158,14 @@ class UsersController extends AppController {
 	
 	
 	function dashboard() {
+		$paginate = array(
+			'News' => array(
+				'limit' => 5
+			)
+		);
 		
+		$articles = $this->paginate('News');
+		$this->set(compact('articles'));
 	}
 	
 	
