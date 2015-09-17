@@ -161,7 +161,26 @@ class UsersController extends AppController {
 	
 	
 	public function admin_index() {
-		$this->User->recursive = 0;
+		$paginate = array(
+			'conditions' => array(
+				'User.email NOT' => 'guest@greyback.net'
+			),
+			'contain' => array(
+				'Role'
+			)
+		);
+		
+		if(!empty($this->request->data['User']['search'])) {
+			$paginate['conditions']['OR'] = array(
+				'User.first_name LIKE' => '%'.$this->request->data['User']['search'].'%',
+				'User.last_name LIKE' => '%'.$this->request->data['User']['search'].'%',
+				'User.email LIKE' => '%'.$this->request->data['User']['search'].'%',
+				'User.phone LIKE' => '%'.$this->request->data['User']['search'].'%',
+				'User.position LIKE' => '%'.$this->request->data['User']['search'].'%',
+			);
+		}
+		
+		$this->paginate = $paginate;
 		$this->set('users', $this->paginate());
 	}
 
@@ -179,8 +198,13 @@ class UsersController extends AppController {
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
+			$this->request->data['User']['passwd'] = '';
+			$this->request->data['User']['passwd_verify'] = '';
 		}
-		$this->set('roles',$this->User->Role->find('list'));
+		
+		$roles =  $this->User->Role->find('list');
+		$departments = $this->User->Department->find('list');
+		$this->set(compact('roles','departments'));
 	}
 
 

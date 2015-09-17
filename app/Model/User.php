@@ -8,6 +8,7 @@ class User extends AppModel {
 			'className' => 'Role',
 			'foreignKey' => 'role_id'
 		),
+		'Department'
 	);
 
 	var $hasMany = array(

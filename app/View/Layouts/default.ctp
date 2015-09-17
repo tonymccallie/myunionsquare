@@ -1,8 +1,15 @@
+<?php
+	$USER = Authsome::get();
+	$loggedIn = false;
+	if($USER['User']['email'] != 'guest@greyback.net') {
+		$loggedIn = true;
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>AppInstall</title>
+	<title>My Union Square: <?php echo $title_for_layout ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -46,10 +53,17 @@
 	<!-- /Google Analytics -->
 </head>
 
-<body>
+<body class="">
 	<div id="header" class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
-			<div class="container-fluid">
+			<div class="left_col">
+				<?php if(!$loggedIn): ?>
+					Welcome
+				<?php else: ?>
+					<?php echo $USER['User']['first_name'].' '.$USER['User']['last_name'] ?>
+				<?php endif ?>
+			</div>
+			<div class="content">
 				<!-- Mobile Menu Button -->
 				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 					<span class="icon-bar"></span>
@@ -57,47 +71,59 @@
 					<span class="icon-bar"></span>
 				</button>
 				<!-- /Mobile Menu Button -->
-
-				<?php echo $this->Html->link('<i class="icon-html5"></i> AppInstall','/',array('escape'=>false,'class'=>'brand')) ?>
-
-				<div class="nav-collapse collapse pull-right">
-					<ul class="nav">
-						<li class="active"><?php echo $this->Html->link('Home','/') ?></li>
-						<?php if(Authsome::get('Role.name') == 'Admin'): ?>
-						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="admin_dropdown">Admin <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><?php echo $this->Html->link('Users','/admin/users') ?></li>
-							</ul>
-						</li>
-						<?php endif ?>
-						<?php if(Authsome::get('email') == 'guest@greyback.net'): ?>
-							<li class=""><?php echo $this->Html->link('Login','/users/login') ?></li>
-							<li class=""><?php echo $this->Html->link('Register','/users/register') ?></li>
-						<?php else: ?>
-							<li class=""><?php echo $this->Html->link('Change Password','/users/password') ?></li>
-							<li class=""><?php echo $this->Html->link('Logout','/users/logout') ?></li>
-						<?php endif ?>
-					</ul>
+				<div id="header_ctrl" class="right_col">
+					<?php echo $this->Html->link('<i class="icon-question-sign"></i> FAQ','/pages/faq',array('escape'=>false)) ?>
+					<?php if(!$loggedIn): ?>
+						<?php echo $this->Html->link('<i class="icon-edit"></i> Register','/users/register',array('escape'=>false)) ?>
+						<?php echo $this->Html->link('<i class="icon-signin"></i> Login','/users/login',array('escape'=>false)) ?>
+					<?php else: ?>
+						<?php echo $this->Html->link('<i class="icon-cog"></i> Settings','/users/password',array('escape'=>false)) ?>
+						<?php echo $this->Html->link('<i class="icon-signout"></i> Logout','/users/logout',array('escape'=>false)) ?>
+					<?php endif ?>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="container">
-		<?php echo $this->Session->flash(); ?>
-		<div class="row-fluid">
-			<?php echo $content_for_layout ?>
-		</div>
+	<div id="navbar" class="left_col">
+		<ul class="nav">
+			<li class="active"><?php echo $this->Html->link('<i class="icon-dashboard"></i> Dashboard','/dashboard',array('escape'=>false)) ?></li>
+			<?php if($USER['Role']['name'] == 'Admin'): ?>
+			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="admin_dropdown"><i class="icon-group"></i> Admin <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><?php echo $this->Html->link('Announcements','/admin/news') ?></li>
+					<li><?php echo $this->Html->link('Users','/admin/users') ?></li>
+					<li><?php echo $this->Html->link('Posts','/admin/posts') ?></li>
+					<li><?php echo $this->Html->link('Files','/admin/files') ?></li>
+				</ul>
+			</li>
+			<?php endif ?>
+			<?php if($loggedIn): ?>
+			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-calendar"></i> Calendar','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/',array('escape'=>false)) ?></li>
+			<?php endif ?>
+		</ul>
 	</div>
 
-	<div id="footer">
-		<div class="container">
+	<div class="content">
+		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span12 text-center">
-					<p>&copy;<?php echo date('Y') ?> GreyBack Labs, LLC</p>
+				<div class="span12">
+					<?php echo $this->Session->flash(); ?>
+					<div class="row-fluid">
+						<?php echo $content_for_layout ?>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

@@ -3,16 +3,73 @@
 @import "less/responsive.less";
 @import "fonts.less";
 
+@red: #e23329;
+@grey: #cccccc;
+	
+
 body {
 	padding-top: @navbarHeight + 20px; /* 60px to make the container go all the way to the bottom of the topbar */
+	background: url(../img/bg.png) left top repeat-y;
+	font-family: 'Lato', sans-serif;
 }
 
-#banner {
-	margin-bottom: 20px;
+a {
+	color: @red;
 }
 
-#banner img {
-	width: 100%;
+#header {
+	.navbar-inner {
+		background: none;
+	}
+	-moz-box-shadow:    0px 2px 17px 0px #111;
+	-webkit-box-shadow: 0px 2px 17px 0px #111;
+	box-shadow:         0px 2px 17px 0px #111;
+}
+
+#header_ctrl {
+	a {
+		display: block;
+		line-height: 50px;
+		color: @grey;
+		width: 105px;
+		float: left;
+		text-align: center;
+		border-left: solid 1px;
+	}
+}
+
+.left_col {
+	font-family: 'Oswald';
+	width: 320px;
+	float: left;
+	color: white;
+	a {
+		color: white;
+	}
+	.nav {
+		li {
+			border-bottom: solid 1px;
+		}
+		a {
+			padding-left: 20px;
+			line-height: 50px;
+			font-size: 20px;
+		}
+		.dropdown-toggle .caret {
+			border-top-color: @white;
+			border-bottom-color: @white;
+			margin-top: 25px;
+		}
+	}
+}
+
+.right_col {
+	width: 320px;
+	float: right;
+}
+
+.content {
+	padding-left: 320px;
 }
 
 .scaleVid {
