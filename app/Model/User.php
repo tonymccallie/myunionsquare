@@ -1,7 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 class User extends AppModel {
-	var $order = array('User.email');
+	var $order = array('User.last_name'=>'asc','User.first_name'=>'asc');
 	
 	var $belongsTo = array(
 		'Role' => array(

@@ -4,7 +4,7 @@
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th style="width:90px;"></th>
+				<th style="width:90px;">Photo</th>
 				<th>
 					<?php echo $this->Paginator->sort('first_name','<i class="icon-sort"></i> First',array('escape'=>false)); ?>
 					<?php echo $this->Paginator->sort('last_name','<i class="icon-sort"></i> Last',array('escape'=>false)); ?>
