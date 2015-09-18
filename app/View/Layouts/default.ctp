@@ -112,7 +112,7 @@
 			<?php endif ?>
 		</ul>
 		<?php if($loggedIn): ?>
-			<div class="text-center">
+			<div class="text-center open_door">
 				<?php echo $this->Html->link('The Open Door','/pages/opendoor',array('class'=>'btn')) ?>
 			</div>
 		<?php endif ?>
