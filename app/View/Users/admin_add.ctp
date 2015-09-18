@@ -5,7 +5,7 @@
 </div>
 <div class="">
 	<?php
-		echo $this->Form->create();
+		echo $this->Form->create('User',array('type'=>'file'));
 			echo $this->Form->input('email',array());
 			echo $this->Form->input('role_id',array());
 		echo $this->Form->end(array('label'=>'Add User','class'=>'btn'));

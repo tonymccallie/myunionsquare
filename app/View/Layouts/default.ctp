@@ -57,11 +57,9 @@
 	<div id="header" class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="left_col">
-				<?php if(!$loggedIn): ?>
-					Howdy
-				<?php else: ?>
-					<div id="self_picture"><img src="../img/teea-pic.png" alt="teea-pic" width="100" height="100" class="img-circle"/></div>
-					<div id="self_name">Howdy <?php echo $USER['User']['first_name']?>,</div>
+				<?php if($loggedIn): ?>
+					<div id="self_picture"><?php echo !empty($USER['User']['photo'])?$this->Html->image('thumb/'.$USER['User']['photo'].'/width:200/height:200/crop:true/zoom:auto',array('class'=>'img-circle')):'' ?></div>
+					<div id="self_name">Howdy <?php echo $USER['User']['first_name']?></div>
 					<div id="self_position"><?php echo $USER['User']['position'] ?></div>
 				<?php endif ?>
 			</div>
@@ -73,7 +71,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<!-- /Mobile Menu Button -->
-				<img src="../img/logo.png" alt="logo"/ class="logo">
+				<?php echo $this->Html->image('logo.png',array('class'=>'logo')) ?>
 				<div id="header_ctrl" class="right_col">
 					<?php echo $this->Html->link('<i class="icon-desktop"></i><br>Website','/pages/faq',array('escape'=>false)) ?>
 					<?php if(!$loggedIn): ?>
@@ -114,8 +112,12 @@
 			<?php endif ?>
 		</ul>
 		<?php if($loggedIn): ?>
-			<?php echo $this->Html->link('') ?>
+			<div class="text-center">
+				<?php echo $this->Html->link('The Open Door','/pages/opendoor',array('class'=>'btn')) ?>
+			</div>
 		<?php endif ?>
+		<p><br /></p>
+		<p><br /></p>
 	</div>
 
 	<div class="content">

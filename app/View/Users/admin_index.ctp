@@ -12,6 +12,7 @@
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
+				<th style="width:90px;"></th>
 				<th>
 					<?php echo $this->Paginator->sort('email','<i class="icon-sort"></i> Email',array('escape'=>false)); ?>
 				</th>
@@ -27,6 +28,9 @@
 		<tbody>
 		<?php foreach($users as $user): ?>
 			<tr>
+				<td>
+					<?php echo !empty($user['User']['photo'])?$this->Html->image('thumb/'.$user['User']['photo'].'/width:200/height:200/crop:true/zoom:auto',array('class'=>'img-circle')):'' ?>
+				</td>
 				<td><?php echo $this->Html->link($user['User']['email'],array('action'=>'edit',$user['User']['id'])) ?></td>
 				<td><?php echo $user['User']['first_name'].' '.$user['User']['last_name'] ?></td>
 				
