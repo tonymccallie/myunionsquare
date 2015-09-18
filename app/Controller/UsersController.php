@@ -186,6 +186,28 @@ class UsersController extends AppController {
 		$this->set(compact('articles','birthdays','hires'));
 	}
 	
+	public function directory() {
+		$paginate = array(
+			'conditions' => array(
+				'User.email NOT' => 'guest@greyback.net',
+				'User.active' => true
+			),
+		);
+		
+		if(!empty($this->request->data['User']['search'])) {
+			$paginate['conditions']['OR'] = array(
+				'User.first_name LIKE' => '%'.$this->request->data['User']['search'].'%',
+				'User.last_name LIKE' => '%'.$this->request->data['User']['search'].'%',
+				'User.email LIKE' => '%'.$this->request->data['User']['search'].'%',
+				'User.phone LIKE' => '%'.$this->request->data['User']['search'].'%',
+				'User.position LIKE' => '%'.$this->request->data['User']['search'].'%',
+			);
+		}
+		
+		$this->paginate = $paginate;
+		$this->set('users', $this->paginate());
+	}
+	
 	
 	public function admin_index() {
 		$paginate = array(
