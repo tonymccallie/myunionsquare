@@ -58,9 +58,10 @@
 		<div class="navbar-inner">
 			<div class="left_col">
 				<?php if(!$loggedIn): ?>
-					Welcome
+					Howdy
 				<?php else: ?>
-					<div id="self_name"><?php echo $USER['User']['first_name'].' '.$USER['User']['last_name'] ?></div>
+					<div id="self_picture"><img src="../img/teea-pic.png" alt="teea-pic" width="100" height="100" class="img-circle"/></div>
+					<div id="self_name">Howdy <?php echo $USER['User']['first_name']?>,</div>
 					<div id="self_position"><?php echo $USER['User']['position'] ?></div>
 				<?php endif ?>
 			</div>
@@ -72,14 +73,15 @@
 					<span class="icon-bar"></span>
 				</button>
 				<!-- /Mobile Menu Button -->
+				<img src="../img/logo.png" alt="logo"/ class="logo">
 				<div id="header_ctrl" class="right_col">
-					<?php echo $this->Html->link('<i class="icon-question-sign"></i> FAQ','/pages/faq',array('escape'=>false)) ?>
+					<?php echo $this->Html->link('<i class="icon-desktop"></i><br>Website','/pages/faq',array('escape'=>false)) ?>
 					<?php if(!$loggedIn): ?>
-						<?php echo $this->Html->link('<i class="icon-edit"></i> Register','/users/register',array('escape'=>false)) ?>
-						<?php echo $this->Html->link('<i class="icon-signin"></i> Login','/users/login',array('escape'=>false)) ?>
+						<?php echo $this->Html->link('<i class="icon-edit"></i><br>Register','/users/register',array('escape'=>false)) ?>
+						<?php echo $this->Html->link('<i class="icon-signin"></i><br>Login','/users/login',array('escape'=>false)) ?>
 					<?php else: ?>
-						<?php echo $this->Html->link('<i class="icon-cog"></i> Settings','/users/password',array('escape'=>false)) ?>
-						<?php echo $this->Html->link('<i class="icon-signout"></i> Logout','/users/logout',array('escape'=>false)) ?>
+						<?php echo $this->Html->link('<i class="icon-cog"></i><br>Settings','/users/password',array('escape'=>false)) ?>
+						<?php echo $this->Html->link('<i class="icon-signout"></i><br>Logout','/users/logout',array('escape'=>false)) ?>
 					<?php endif ?>
 				</div>
 			</div>

@@ -16,7 +16,10 @@
 	<div class="span3">
 		<div class="well">
 			<h5>Birthdays this week</h5>
-			<h5>Hire anniversaries this week</h5>
+			<h5>Staff anniversaries this week</h5>
+		</div>
+		<div class="well">
+			<h5>Core Conversion</h5>
 		</div>
 	</div>
 </div>
