@@ -73,14 +73,19 @@
 				<!-- /Mobile Menu Button -->
 				<?php echo $this->Html->image('logo.png',array('class'=>'logo')) ?>
 				<div id="header_ctrl" class="right_col">
-					<?php echo $this->Html->link('<i class="icon-desktop"></i><br>Website','/pages/faq',array('escape'=>false)) ?>
-					<?php if(!$loggedIn): ?>
-						<?php echo $this->Html->link('<i class="icon-edit"></i><br>Register','/users/register',array('escape'=>false)) ?>
-						<?php echo $this->Html->link('<i class="icon-signin"></i><br>Login','/users/login',array('escape'=>false)) ?>
+					<?php if($USER['Role']['name'] == 'Admin'): ?>
+						<a href="#" class="dropdown-toggle" data-toggle="admin_dropdown"><i class="icon-group"></i><br>Admin</a>
+						<ul class="dropdown-menu">
+							<li><?php echo $this->Html->link('Announcements','/admin/news') ?></li>
+							<li><?php echo $this->Html->link('Users','/admin/users') ?></li>
+							<li><?php echo $this->Html->link('Posts','/admin/posts') ?></li>
+							<li><?php echo $this->Html->link('Files','/admin/files') ?></li>
+						</ul>
 					<?php else: ?>
-						<?php echo $this->Html->link('<i class="icon-cog"></i><br>Settings','/users/password',array('escape'=>false)) ?>
-						<?php echo $this->Html->link('<i class="icon-signout"></i><br>Logout','/users/logout',array('escape'=>false)) ?>
+						<?php echo $this->Html->link('<i class="icon-desktop"></i><br>Website','http://www.unionsquare.org',array('escape'=>false)) ?>
 					<?php endif ?>
+					<?php echo $this->Html->link('<i class="icon-cog"></i><br>Settings','/users/password',array('escape'=>false)) ?>
+					<?php echo $this->Html->link('<i class="icon-signout"></i><br>Logout','/users/logout',array('escape'=>false)) ?>
 				</div>
 			</div>
 		</div>
@@ -89,16 +94,6 @@
 	<div id="navbar" class="left_col">
 		<ul class="nav">
 			<li class="active"><?php echo $this->Html->link('<i class="icon-dashboard"></i> Dashboard','/dashboard',array('escape'=>false)) ?></li>
-			<?php if($USER['Role']['name'] == 'Admin'): ?>
-			<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="admin_dropdown"><i class="icon-group"></i> Admin <b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><?php echo $this->Html->link('Announcements','/admin/news') ?></li>
-					<li><?php echo $this->Html->link('Users','/admin/users') ?></li>
-					<li><?php echo $this->Html->link('Posts','/admin/posts') ?></li>
-					<li><?php echo $this->Html->link('Files','/admin/files') ?></li>
-				</ul>
-			</li>
-			<?php endif ?>
 			<?php if($loggedIn): ?>
 			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/pages/announcements',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-calendar"></i> Calendar','/pages/calendar',array('escape'=>false)) ?></li>
