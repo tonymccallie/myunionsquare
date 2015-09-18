@@ -104,12 +104,12 @@
 			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/pages/resource',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/pages/board',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/pages/photos',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/pages/help',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','#amarillo',array('escape'=>false)) ?></li>
 			<?php endif ?>
 		</ul>
 		<?php if($loggedIn): ?>
 			<div class="text-center open_door">
-				<?php echo $this->Html->link('The Open Door','/pages/opendoor',array('class'=>'btn')) ?>
+				<?php echo $this->Html->link('The Open Door','/pages/open_door',array('class'=>'btn')) ?>
 			</div>
 		<?php endif ?>
 		<p><br /></p>
