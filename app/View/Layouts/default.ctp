@@ -98,7 +98,7 @@
 			<?php if($loggedIn): ?>
 			<li><?php //echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/pages/announcements',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-calendar"></i> Calendar','/pages/calendar',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/pages/board',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/pages/messages',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/users/directory',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/pages/resources',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/pages/resource',array('escape'=>false)) ?></li>
