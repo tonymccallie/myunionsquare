@@ -164,8 +164,24 @@ class UsersController extends AppController {
 			)
 		);
 		
+		$birthdays = $this->User->find('all', array(
+			'conditions' => array(
+				'User.birthday NOT' => null,
+				'WEEKOFYEAR(User.birthday) = WEEKOFYEAR(CURDATE())',
+			),
+			'contain' => array()
+		));
+		
+		$hires = $this->User->find('all', array(
+			'conditions' => array(
+				'User.hire_date NOT' => null,
+				'WEEKOFYEAR(User.hire_date) = WEEKOFYEAR(CURDATE())',
+			),
+			'contain' => array()
+		));
+		
 		$articles = $this->paginate('News');
-		$this->set(compact('articles'));
+		$this->set(compact('articles','birthdays','hires'));
 	}
 	
 	
@@ -191,6 +207,27 @@ class UsersController extends AppController {
 		
 		$this->paginate = $paginate;
 		$this->set('users', $this->paginate());
+	}
+
+	public function admin_add() {
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if(!$this->request->data['User']['image']['error'] == 4) {
+				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/';
+				$filename = date('Y.m.d_His').'_user_'.$this->request->data['User']['image']['name'];
+				move_uploaded_file($this->request->data['User']['image']['tmp_name'], $targetPath.$filename);
+				$this->request->data['User']['photo'] = $filename;
+			}
+			$this->request->data['User']['verified'] = date('Y-m-d H:i:s');
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash('The user has been create','success');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('The user could not be created. Please, try again.','error');
+			}
+		}
+		$roles =  $this->User->Role->find('list');
+		$departments = $this->User->Department->find('list');
+		$this->set(compact('roles','departments'));
 	}
 
 	public function admin_edit($id = null) {

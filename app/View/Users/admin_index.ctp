@@ -2,7 +2,7 @@
 	<h3>
 		<i class="icon-edit"></i> Users
 		<div class="btn-group pull-right">
-			<?php echo $this->Html->link('Add User', '/admin/user/add',array('class'=>'btn','escape'=>false)); ?>
+			<?php echo $this->Html->link('Add User', '/admin/users/add',array('class'=>'btn','escape'=>false)); ?>
 			<?php echo $this->Html->link('Departments', '/admin/departments',array('class'=>'btn')) ?>
 		</div>
 	</h3>

@@ -12,7 +12,7 @@ class NewsController extends AppController {
 		if(!empty($this->request->data['News']['search'])) {
 			$paginate['conditions']['OR'] = array(
 				'News.title LIKE' => '%'.$this->request->data['News']['search'].'%',
-				'News.body LIKE' => '%'.$this->request->data['News']['body'].'%',
+				'News.body LIKE' => '%'.$this->request->data['News']['search'].'%',
 			);
 		}
 		

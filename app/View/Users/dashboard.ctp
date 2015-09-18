@@ -17,44 +17,38 @@
 		<div class="well">
 			<h5>Birthdays this week</h5>
 			<div class="birthday-container">
-				<div class="birthday">
-					<div class="birthday-image">
-						<img src="../img/teea-pic.png" alt="teea-pic" width="100" height="100" class="img-circle"/>
+				<?php foreach($birthdays as $birthday): ?>
+					<div class="birthday">
+						<div class="birthday-image">
+							<?php echo !empty($birthday['User']['photo'])?$this->Html->image('thumb/'.$birthday['User']['photo'].'/width:200/height:200/crop:true/zoom:auto',array('class'=>'img-circle')):'' ?>
+						</div>
+						<div class="birthday-name">
+							<?php echo $birthday['User']['first_name'].' '.$birthday['User']['last_name'] ?>
+						</div>
+						<div class="birthday-date">
+							<?php echo date('l - n/j',strtotime($birthday['User']['birthday'])) ?>
+						</div>
+						<div class="birthday-like"><i class="icon-thumbs-up-alt"></i></div>
 					</div>
-					<div class="birthday-name">
-						Teea Reed
-					</div>
-					<div class="birthday-date">
-						Friday - 9/25
-					</div>
-					<div class="birthday-like"><i class="icon-thumbs-up-alt"></i></div>
-				</div>
-				<div class="birthday">
-					<div class="birthday-image">
-						<img src="../img/teea-pic.png" alt="teea-pic" width="100" height="100" class="img-circle"/>
-					</div>
-					<div class="birthday-name">
-						Teea Reed
-					</div>
-					<div class="birthday-date">
-						Friday - 9/25
-					</div>
-					<div class="birthday-like"><i class="icon-thumbs-up-alt"></i></div>
-				</div>
-				<div class="birthday birthday-last">
-					<div class="birthday-image">
-						<img src="../img/teea-pic.png" alt="teea-pic" width="100" height="100" class="img-circle"/>
-					</div>
-					<div class="birthday-name">
-						Teea Reed
-					</div>
-					<div class="birthday-date">
-						Friday - 9/25
-					</div>
-					<div class="birthday-like"><i class="icon-thumbs-up-alt"></i></div>
-				</div>
+				<?php endforeach ?>
 			</div>
 			<h5>Staff anniversaries</h5>
+			<div class="birthday-container">
+				<?php foreach($hires as $hire): ?>
+					<div class="birthday">
+						<div class="birthday-image">
+							<?php echo !empty($hire['User']['photo'])?$this->Html->image('thumb/'.$hire['User']['photo'].'/width:200/height:200/crop:true/zoom:auto',array('class'=>'img-circle')):'' ?>
+						</div>
+						<div class="birthday-name">
+							<?php echo $hire['User']['first_name'].' '.$hire['User']['last_name'] ?>
+						</div>
+						<div class="birthday-date">
+							<?php echo date('l - n/j',strtotime($hire['User']['hire_date'])) ?>
+						</div>
+						<div class="birthday-like"><i class="icon-thumbs-up-alt"></i></div>
+					</div>
+				<?php endforeach ?>
+			</div>
 		</div>
 		<div class="well">
 			<h5>Core Conversion</h5>
