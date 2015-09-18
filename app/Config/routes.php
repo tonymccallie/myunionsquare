@@ -1,7 +1,7 @@
 <?php
 	Router::connect('/img/thumb/*', array('controller' => 'images', 'action' => 'thumb'));
 
-	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/', array('controller' => 'users', 'action' => 'login'));
 
 	Router::connect('/dashboard',array('controller'=>'users','action'=>'dashboard'));
 

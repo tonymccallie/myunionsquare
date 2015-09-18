@@ -4,6 +4,7 @@ class UsersController extends AppController {
 	public $uses = array('User','News');
 
 	function login() {
+		$this->layout = 'blank';
 		Authsome::logout();
 		if(empty($this->request->data)) {
 			return;
@@ -41,6 +42,7 @@ class UsersController extends AppController {
 	}
 	
 	function recover($key = null) {
+		$this->layout = 'blank';
 		if(!empty($key)) {
 			if(!empty($this->request->data)) {
 				if($this->User->save($this->request->data)) {

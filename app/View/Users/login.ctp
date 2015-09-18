@@ -1,3 +1,4 @@
+<p><br /></p>
 <div class="span8 offset2">
 	<div class="well">
 		<h2>Login</h2>
@@ -19,7 +20,6 @@
 				<div class="btn-group pull-right">
 					<?php
 						echo $this->Html->link('Forgot Password?', array('action' => 'recover'),array('class'=>'btn','escape'=>false));
-						echo $this->Html->link('Register',array('action'=>'register'),array('class'=>'btn','escape'=>false));
 						echo $this->Form->submit('Login',array('class'=>'btn btn-primary','div'=>false));
 					?>
 				</div>

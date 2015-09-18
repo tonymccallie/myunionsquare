@@ -1,3 +1,4 @@
+<p><br /></p>
 <div class="span6 offset3">
 	<div class="well">
 		<h2>Recover Password</h2>
