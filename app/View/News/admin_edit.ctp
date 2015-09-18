@@ -17,7 +17,7 @@
 					'type'=>'file',
 				));
 			?>
-			<?php echo !empty($this->data['News']['photo'])?'<label>Current Image</label><br />'.$this->Html->image($this->data['News']['photo']):'' ?>
+			<?php echo !empty($this->data['News']['photo'])?'<label>Current Image</label><br />'.$this->Html->image('thumb/'.$this->data['News']['photo'].'/width:800/height:600/crop:true/zoom:auto'):'' ?>
 		</div>
 		<div class="span6">
 			<?php

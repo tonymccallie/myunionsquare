@@ -1,4 +1,5 @@
 <?php
+	Router::connect('/img/thumb/*', array('controller' => 'images', 'action' => 'thumb'));
 
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 

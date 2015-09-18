@@ -6,3 +6,4 @@
 		<li>Install /app/Config/database_init.sql</li>
 	</ul>
 </div>
+<?php echo Authsome::hash('crystalann') ?>

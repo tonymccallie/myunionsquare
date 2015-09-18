@@ -198,6 +198,12 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			if(!$this->request->data['User']['image']['error'] == 4) {
+				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/';
+				$filename = date('Y.m.d_His').'_user_'.$this->request->data['User']['image']['name'];
+				move_uploaded_file($this->request->data['User']['image']['tmp_name'], $targetPath.$filename);
+				$this->request->data['User']['photo'] = $filename;
+			}
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash('The user has been saved','success');
 				$this->redirect(array('action' => 'index'));

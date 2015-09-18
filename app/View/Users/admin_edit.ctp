@@ -7,7 +7,7 @@
 	</h3>
 </div>
 <div class="">
-	<?php echo $this->Form->create(); ?>
+	<?php echo $this->Form->create('User',array('type'=>'file')); ?>
 	<div class="row-fluid">
 		<div class="span6">
 			<div class="row-fluid">
@@ -33,7 +33,11 @@
 				echo $this->Form->input('birthday',array('class'=>'span4','minYear'=>1920,'maxYear'=>date('Y'),'empty' => true));
 				echo $this->Form->input('hire_date',array('class'=>'span4','minYear'=>1920,'maxYear'=>date('Y'),'empty' => true));
 				echo $this->Form->input('role_id',array('class'=>'span12'));
+				echo $this->Form->input('image',array('label' => 'New Image',
+					'type'=>'file',
+				));
 			?>
+			<?php echo !empty($this->data['User']['photo'])?'<label>Current Image</label><br />'.$this->Html->image('thumb/'.$this->data['User']['photo'].'/width:200/height:200/crop:true/zoom:auto',array('style'=>'width: 200px;')):'' ?>
 		</div>
 	</div>
 	<?php echo $this->Form->end(array('label'=>'Save User','class'=>'btn')); ?>

@@ -3,7 +3,7 @@
 		<?php foreach($articles as $article): ?>
 		<div class="row-fluid article">
 			<div class="span4">
-				<?php echo !empty($article['News']['photo'])?$this->Html->image($article['News']['photo']):'NO PHOTO' ?>
+				<?php echo !empty($article['News']['photo'])?$this->Html->image('thumb/'.$article['News']['photo'].'/width:800/height:600/crop:true/zoom:auto'):'NO PHOTO' ?>
 			</div>
 			<div class="span8">
 				<h4><?php echo $article['News']['title'] ?></h4>
