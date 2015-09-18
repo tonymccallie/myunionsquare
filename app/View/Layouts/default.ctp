@@ -96,12 +96,12 @@
 		<ul class="nav">
 			<li class="active"><?php echo $this->Html->link('<i class="icon-dashboard"></i> Dashboard','/dashboard',array('escape'=>false)) ?></li>
 			<?php if($loggedIn): ?>
-			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/pages/announcements',array('escape'=>false)) ?></li>
+			<li><?php //echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/pages/announcements',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-calendar"></i> Calendar','/pages/calendar',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/pages/board',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/pages/directory',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/users/directory',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/pages/resources',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/pages/training',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/pages/resource',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/pages/board',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/pages/photos',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/pages/help',array('escape'=>false)) ?></li>
