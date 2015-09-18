@@ -16,7 +16,45 @@
 	<div class="span3">
 		<div class="well">
 			<h5>Birthdays this week</h5>
-			<h5>Staff anniversaries this week</h5>
+			<div class="birthday-container">
+				<div class="birthday">
+					<div class="birthday-image">
+						<img src="../img/teea-pic.png" alt="teea-pic" width="100" height="100" class="img-circle"/>
+					</div>
+					<div class="birthday-name">
+						Teea Reed
+					</div>
+					<div class="birthday-date">
+						Friday - 9/25
+					</div>
+					<div class="birthday-like"><i class="icon-thumbs-up-alt"></i></div>
+				</div>
+				<div class="birthday">
+					<div class="birthday-image">
+						<img src="../img/teea-pic.png" alt="teea-pic" width="100" height="100" class="img-circle"/>
+					</div>
+					<div class="birthday-name">
+						Teea Reed
+					</div>
+					<div class="birthday-date">
+						Friday - 9/25
+					</div>
+					<div class="birthday-like"><i class="icon-thumbs-up-alt"></i></div>
+				</div>
+				<div class="birthday birthday-last">
+					<div class="birthday-image">
+						<img src="../img/teea-pic.png" alt="teea-pic" width="100" height="100" class="img-circle"/>
+					</div>
+					<div class="birthday-name">
+						Teea Reed
+					</div>
+					<div class="birthday-date">
+						Friday - 9/25
+					</div>
+					<div class="birthday-like"><i class="icon-thumbs-up-alt"></i></div>
+				</div>
+			</div>
+			<h5>Staff anniversaries</h5>
 		</div>
 		<div class="well">
 			<h5>Core Conversion</h5>

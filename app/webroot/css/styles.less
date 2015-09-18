@@ -12,6 +12,7 @@ body {
 	background: url(../img/bg.png) left top repeat-y;
 	font-family: 'Lato', sans-serif;
 	color: @grey;
+	font-weight: 300;
 }
 
 a {
@@ -167,6 +168,53 @@ img {
 
 .img-circle {
 	border: 1px @white solid;
+}
+
+.well {
+	h5 {
+		font-family: 'Oswald';
+		font-weight: 300;
+		text-transform: uppercase;
+		font-size: 24px;
+	}
+}
+
+.birthday-container {
+	padding-bottom: 20px;
+	float: left;
+}
+
+.birthday {
+	float: left;
+	width: 100%;
+	border-bottom: solid 1px @grey;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+.birthday-last {
+	border-bottom: none;
+}
+
+.birthday-image {
+	float: left;
+	width: 20%;
+	padding-right: 3%;
+}
+
+.birthday-name {
+	float: left;
+	width: 62%;
+}
+
+.birthday-date {
+	float: left;
+	width: 62%;
+}
+
+.birthday-like {
+	float: left;
+	width: 15%;
 }
 
 @import "responsive_large.less";
