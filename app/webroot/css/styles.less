@@ -8,7 +8,7 @@
 	
 
 body {
-	padding-top: @navbarHeight + 80px; /* 60px to make the container go all the way to the bottom of the topbar */
+	padding-top: @navbarHeight + 50px; /* 60px to make the container go all the way to the bottom of the topbar */
 	background: url(../img/bg.png) left top repeat-y;
 	font-family: 'Lato', sans-serif;
 	color: @grey;
@@ -112,6 +112,7 @@ img {
 .right_col {
 	width: 320px;
 	float: right;
+	position: relative;
 }
 
 .content {
@@ -186,6 +187,8 @@ img {
 		font-weight: 300;
 		text-transform: uppercase;
 		font-size: 24px;
+		margin-bottom: 25px;
+
 	}
 }
 
@@ -212,6 +215,12 @@ img {
 	padding-right: 3%;
 }
 
+.birthday-details {
+	float: left;
+	width: 62%;
+}
+/*
+
 .birthday-name {
 	float: left;
 	width: 62%;
@@ -221,10 +230,120 @@ img {
 	float: left;
 	width: 62%;
 }
+*/
 
 .birthday-like {
+	padding-top: 10px;
 	float: left;
 	width: 15%;
+	font-size: 9px;
+	text-align: center;
+	line-height: 12px;
+	
+	i {
+		font-size: 14px;
+	}
+}
+
+.open_door .btn {
+	text-transform: uppercase;
+	font-weight: 400;
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: @red;
+    text-shadow: none;
+    background-color: white;
+    background-image: none;
+    filter: none;
+    border-color: none;
+    border-color: none;
+    filter: none;
+    border: none;
+    border-bottom-color: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: url(../img/open_door.png) 7% white no-repeat;
+    padding: 10px 10px 10px 35px;
+}
+
+.core_conversion {
+	list-style: none;
+	margin: 0;
+
+	li {
+	border-bottom: solid 1px @grey;
+	display: block;
+	width: 100%;
+	float: left;
+	padding: 10px 0px;
+	}
+	
+}
+
+.core_date {
+	font-family: 'Oswald';
+	font-size: 16px;
+	text-transform: uppercase;
+	float: left;
+	padding-right: 7px;
+}
+
+.core_text {
+	float: left;
+}
+
+.article {
+	padding-bottom: 20px;
+	border-bottom: 1px #CFCFCF dashed;
+	margin-bottom: 25px;
+}
+
+.article .span4 {
+	IMG {
+		border: 1px @grey solid;
+		margin: 2px;
+		padding: 2px;
+	}
+}
+
+.article .btn {
+	background: #CFCFCF;
+	border: none;
+	color: @white;
+	text-shadow: none;
+	border-radius: 0px;
+	width: 42%;
+	float: left;
+	margin-right: 5px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 13px;
+	text-transform: uppercase;
+	
+	i {
+		margin-right: 5px;
+		font-size: 18px;
+	}
+}
+
+.blank .well {
+	background: url(../img/transparent_bg.png) repeat transparent;
+	border-radius: 0px;
+	border: none;
+	
+	h2 {
+		color: @white;
+	}
 }
 
 @import "responsive_large.less";
