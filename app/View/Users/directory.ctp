@@ -1,6 +1,14 @@
 <h3>Directory</h3>
 <div class="directory">
-	<?php echo $this->element('search') ?>
+	<div class="input-append pull-right">
+		<?php
+			echo $this->Form->create();
+				echo $this->Form->input('department',array('div'=>false, 'class'=>'','label'=>false,'options'=>$departments));
+				echo $this->Form->input('search',array('div'=>false, 'class'=>'','label'=>false));
+				echo $this->Form->submit('Search',array('class'=>'btn','div'=>false));
+			echo $this->Form->end();
+		?>
+	</div>
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>

@@ -5,7 +5,7 @@ class UsersController extends AppController {
 
 	function login() {
 		$this->layout = 'blank';
-		Authsome::logout();
+		//Authsome::logout();
 		if(empty($this->request->data)) {
 			return;
 		}
@@ -204,10 +204,15 @@ class UsersController extends AppController {
 			);
 		}
 		
+		if(!empty($this->request->data['User']['department'])) {
+			$paginate['conditions']['User.department_id'] = $this->request->data['User']['department'];
+		}
+		
 		$this->paginate = $paginate;
-		$this->set('users', $this->paginate());
+		$users = $this->paginate();
+		$departments = $this->User->Department->find('list');
+		$this->set(compact('users','departments'));
 	}
-	
 	
 	public function admin_index() {
 		$paginate = array(

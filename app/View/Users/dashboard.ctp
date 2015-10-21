@@ -59,7 +59,7 @@
 			</div>
 		</div>
 		<div class="well clearfix">
-			<h5>Core Conversion</h5>
+			<h5>High Fives</h5>
 			<ul class="core_conversion">
 				<li>
 					<div class="core_date">09.02</div>

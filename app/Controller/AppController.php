@@ -1,6 +1,7 @@
 <?php
 App::uses('Controller', 'Controller');
 App::uses('User','Model');
+App::uses('Greeting','Model');
 class AppController extends Controller {
 	public $helpers = array('Time','Html','Form','Session');
 
@@ -10,6 +11,11 @@ class AppController extends Controller {
 	);
 	
 	public $user = array();
+	
+	var $uses = array('Greeting');
+	
+	public $greeting = '';
+	//debug(Greeting::find());
 
 	
 	public function beforeFilter() {
@@ -38,5 +44,10 @@ class AppController extends Controller {
 			$this->redirect('/dashboard');
 		}
 		$this->user = $this->Session->read('User');
+	}
+	
+	public function beforeRender() {
+		$greeting = Greeting::get();
+		$this->set('greeting',$greeting['Greeting']['title']);
 	}
 }

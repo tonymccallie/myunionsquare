@@ -60,7 +60,7 @@
 			<div class="left_col">
 				<?php if($loggedIn): ?>
 					<div id="self_picture"><?php echo !empty($USER['User']['photo'])?$this->Html->image('thumb/'.$USER['User']['photo'].'/width:200/height:200/crop:true/zoom:auto',array('class'=>'img-circle')):'' ?></div>
-					<div id="self_name">Howdy <?php echo $USER['User']['first_name']?></div>
+					<div id="self_name"><?php echo $greeting ?> <?php echo $USER['User']['first_name']?></div>
 					<div id="self_position"><?php echo $USER['User']['position'] ?></div>
 				<?php endif ?>
 			</div>
@@ -81,6 +81,8 @@
 							<li><?php echo $this->Html->link('Users','/admin/users') ?></li>
 							<li><?php echo $this->Html->link('Posts','/admin/posts') ?></li>
 							<li><?php echo $this->Html->link('Files','/admin/files') ?></li>
+							<li><?php echo $this->Html->link('Greetings','/admin/greetings') ?></li>
+							<li><?php echo $this->Html->link('Feedback','/admin/feedback') ?></li>
 						</ul>
 					<?php else: ?>
 						<?php echo $this->Html->link('<i class="icon-desktop"></i><br>Website','http://www.unionsquare.org',array('escape'=>false)) ?>
@@ -96,20 +98,22 @@
 		<ul class="nav">
 			<li class="active"><?php echo $this->Html->link('<i class="icon-dashboard"></i> Dashboard','/dashboard',array('escape'=>false)) ?></li>
 			<?php if($loggedIn): ?>
-			<li><?php //echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/pages/announcements',array('escape'=>false)) ?></li>
+			<!--
+			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/pages/announcements',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-calendar"></i> Calendar','/pages/calendar',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/pages/messages',array('escape'=>false)) ?></li>
+			-->
 			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/users/directory',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/pages/resources',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/pages/resource',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/pages/board',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/pages/photos',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','#amarillo',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/pages/helpdesk',array('escape'=>false)) ?></li>
 			<?php endif ?>
 		</ul>
 		<?php if($loggedIn): ?>
 			<div class="text-center open_door">
-				<?php echo $this->Html->link('The Open Door','/pages/open_door',array('class'=>'btn')) ?>
+				<?php echo $this->Html->link('The Open Door','/feedback/add',array('class'=>'btn')) ?>
 			</div>
 		<?php endif ?>
 		<p><br /></p>
