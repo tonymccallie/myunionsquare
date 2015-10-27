@@ -58,50 +58,19 @@
 			</div>
 			</div>
 		</div>
-		<div class="well clearfix">
+		<div class="well clearfix highfives">
 			<h5>High Fives</h5>
-			<ul class="core_conversion">
-				<li>
-					<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
-				<li>
-				<div class="core_date">09.02</div>
-					<div class="core_text">Sample update text for ...</div>
-				</li>
 			<ul>
+				<?php foreach($accolades as $accolade): ?>
+				<li>
+					<div class="core_date"><?php echo date('m.d',strtotime($accolade['Accolade']['created'])) ?></div>
+					<div class="core_text"><?php echo $accolade['Accolade']['body'] ?></div>
+				</li>
+				<?php endforeach ?>
+			</ul>
+			<div class="clearfix">
+				<?php echo $this->Html->link('Give a High Five','/accolades/add',array('class'=>'btn btn-block')) ?>	
+			</div>
 		</div>
 	</div>
 </div>

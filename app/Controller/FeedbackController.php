@@ -3,8 +3,7 @@ App::uses('AppController', 'Controller');
 class FeedbackController extends AppController {
 	public function add() {
 		if ($this->request->is('post') || $this->request->is('put')) {
-			$wordlist = "anal|anus|arse|ass|ballsack|balls|bastard|bitch|biatch|bloody|blowjob|blow job|bollock|bollok|boner|boob|bugger|bum|butt|buttplug|clitoris|cock|coon|crap|cunt|damn|dick|dildo|dyke|fag|feck|fellate|fellatio|felching|fuck|f u c k|fudgepacker|fudge packer|flange|Goddamn|God damn|hell|homo|jerk|jizz|knobend|knob end|labia|lmao|lmfao|muff|nigger|nigga|omg|penis|piss|poop|prick|pube|pussy|queer|scrotum|sex|shit|s hit|sh1t|slut|smegma|spunk|tit|tosser|turd|twat|vagina|wank|whore|wtf";
-			$this->request->data['Feedback']['body'] = preg_replace("/\b($wordlist)\b/ie", 'preg_replace("/./","*","\\1")', $this->request->data['Feedback']['body']);
+			$this->request->data['Feedback']['body'] = Common::filter($this->request->data['Feedback']['body']);
 			if ($this->Feedback->save($this->request->data)) {
 				$this->Session->setFlash('The feedback has been saved','success');
 				$this->redirect('/dashboard');

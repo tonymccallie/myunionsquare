@@ -79,10 +79,10 @@
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Announcements','/admin/news') ?></li>
 							<li><?php echo $this->Html->link('Users','/admin/users') ?></li>
-							<li><?php echo $this->Html->link('Posts','/admin/posts') ?></li>
-							<li><?php echo $this->Html->link('Files','/admin/files') ?></li>
+							<li><?php echo $this->Html->link('Resources','/admin/folders') ?></li>
 							<li><?php echo $this->Html->link('Greetings','/admin/greetings') ?></li>
 							<li><?php echo $this->Html->link('Feedback','/admin/feedback') ?></li>
+							<li><?php echo $this->Html->link('High Fives','/admin/accolades') ?></li>
 						</ul>
 					<?php else: ?>
 						<?php echo $this->Html->link('<i class="icon-desktop"></i><br>Website','http://www.unionsquare.org',array('escape'=>false)) ?>

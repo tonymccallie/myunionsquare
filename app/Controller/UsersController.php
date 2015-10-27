@@ -183,7 +183,10 @@ class UsersController extends AppController {
 		));
 		
 		$articles = $this->paginate('News');
-		$this->set(compact('articles','birthdays','hires'));
+		$accolades = $this->User->Accolade->find('all',array(
+			'limit' => 10
+		));
+		$this->set(compact('articles','birthdays','hires','accolades'));
 	}
 	
 	public function directory() {
