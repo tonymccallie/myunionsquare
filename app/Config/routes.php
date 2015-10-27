@@ -1,5 +1,5 @@
 <?php
-	Router::connect('/img/thumb/*', array('controller' => 'images', 'action' => 'thumb'));
+	//Router::connect('/img/thumb/*', array('controller' => 'images', 'action' => 'thumb'));
 
 	Router::connect('/', array('controller' => 'users', 'action' => 'login'));
 
