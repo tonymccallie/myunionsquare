@@ -49,5 +49,7 @@ class AppController extends Controller {
 	public function beforeRender() {
 		$greeting = Greeting::get();
 		$this->set('greeting',$greeting['Greeting']['title']);
+		$this->header("Cache-Control: must-revalidate, max-age=300");
+		$this->header("Vary: Accept-Encoding");
 	}
 }
