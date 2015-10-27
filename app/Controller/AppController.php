@@ -51,5 +51,6 @@ class AppController extends Controller {
 		$this->set('greeting',$greeting['Greeting']['title']);
 		$this->header("Cache-Control: must-revalidate, max-age=300");
 		$this->header("Vary: Accept-Encoding");
+		$this->header('Expires: '.gmdate('D, d M Y H:i:s',strtotime('-1 day')). ' GMT');
 	}
 }
