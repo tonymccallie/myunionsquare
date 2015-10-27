@@ -59,7 +59,7 @@
 		<div class="navbar-inner">
 			<div class="left_col">
 				<?php if($loggedIn): ?>
-					<div id="self_picture"><?php echo !empty($USER['User']['photo'])?$this->Html->image('thumb/'.$USER['User']['photo'].'/width:200/height:200/crop:true/zoom:auto',array('class'=>'img-circle')):'' ?></div>
+					<div id="self_picture"><?php echo !empty($USER['User']['photo'])?$this->Html->image('thumb/'.$USER['User']['photo'].'/width:200/height:200/crop:true/zoom:auto/'.$USER['User']['photo'],array('class'=>'img-circle')):'' ?></div>
 					<div id="self_name"><?php echo $greeting ?> <?php echo $USER['User']['first_name']?></div>
 					<div id="self_position"><?php echo $USER['User']['position'] ?></div>
 				<?php endif ?>

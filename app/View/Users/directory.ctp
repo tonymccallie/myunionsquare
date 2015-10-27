@@ -29,7 +29,7 @@
 		<?php foreach($users as $user): ?>
 			<tr>
 				<td>
-					<?php echo !empty($user['User']['photo'])?$this->Html->image('thumb/'.$user['User']['photo'].'/width:200/height:200/crop:true/zoom:auto',array('class'=>'img-circle')):'' ?>
+					<?php echo !empty($user['User']['photo'])?$this->Html->image('thumb/'.$user['User']['photo'].'/width:200/height:200/crop:true/zoom:auto/'.$user['User']['photo'],array('class'=>'img-circle')):'' ?>
 				</td>
 				<td><?php echo $user['User']['first_name'].' '.$user['User']['last_name'] ?></td>
 				<td><?php echo $user['User']['email'] ?></td>
