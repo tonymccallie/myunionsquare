@@ -47,6 +47,8 @@ class AppController extends Controller {
 	}
 	
 	public function beforeRender() {
+		$USER = Authsome::get();
+		$this->set('USER',$USER);
 		$greeting = Greeting::get();
 		$this->set('greeting',$greeting['Greeting']['title']);
 		//$this->header("Cache-Control: must-revalidate, max-age=300");

@@ -1,6 +1,16 @@
 <?php
 App::uses('AppController', 'Controller');
 class AccoladesController extends AppController {
+	function like($accolade,$user) {
+		$this->Accolade->like($accolade,$user);
+		$this->redirect('/dashboard');
+	}
+	
+	function dislike($accolade,$user) {
+		$this->Accolade->dislike($accolade,$user);
+		$this->redirect('/dashboard');
+	}
+	
 	public function add() {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$this->request->data['Accolade']['body'] = Common::filter($this->request->data['Accolade']['body']);

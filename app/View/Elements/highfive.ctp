@@ -11,7 +11,13 @@
 					<?php echo $accolade['Accolade']['body'] ?><br /><i>By: <?php echo $accolade['User']['first_name'].' '.$accolade['User']['last_name'] ?></i>
 				</div>
 				<div class="span2">
-					<i class="icon-thumbs-up-alt"></i><br>22 likes
+					<?php
+					if(!$accolade['Accolade']['liked']) {
+						echo $this->Html->link('<i class="icon-thumbs-up"></i><br />'.count($accolade['Like']).' likes</a>','/accolades/like/'.$accolade['Accolade']['id'].'/'.$USER['User']['id'],array('class'=>'highfive_like','escape'=>false));
+					} else {
+						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i><br />'.count($accolade['Like']).' likes</a>','/accolades/dislike/'.$accolade['Accolade']['id'].'/'.$USER['User']['id'],array('class'=>'highfive_like','escape'=>false));
+					}
+				?>
 				</div>
 			</div>
 		</li>

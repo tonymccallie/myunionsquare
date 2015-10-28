@@ -1,5 +1,4 @@
 <?php
-	$USER = Authsome::get();
 	$loggedIn = false;
 	if($USER['User']['email'] != 'guest@greyback.net') {
 		$loggedIn = true;

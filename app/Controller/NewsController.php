@@ -3,6 +3,12 @@ App::uses('AppController', 'Controller');
 class NewsController extends AppController {
 	function like($article,$user) {
 		$this->News->like($article,$user);
+		$this->redirect('/dashboard');
+	}
+	
+	function dislike($article,$user) {
+		$this->News->dislike($article,$user);
+		$this->redirect('/dashboard');
 	}
 	
 	function admin_index() {

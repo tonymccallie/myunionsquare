@@ -1,7 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 class UsersController extends AppController {
-	public $uses = array('User','News');
+	public $uses = array('User','News','Accolade');
 
 	function login() {
 		$this->layout = 'blank';
@@ -185,10 +185,23 @@ class UsersController extends AppController {
 			'contain' => array()
 		));
 		
+		$user_id = Authsome::get('User.id');
+		
 		$articles = $this->paginate('News');
+		foreach($articles as $k=>$v) {
+			$articles[$k]['News']['liked'] = $this->News->isLikedBy($v['News']['id'],$user_id);
+		}
+		
 		$accolades = $this->User->Accolade->find('all',array(
-			'limit' => 10
+			'limit' => 10,
+			'contain' => array(
+				'User','Like'
+			)
 		));
+		foreach($accolades as $k=>$v) {
+			$accolades[$k]['Accolade']['liked'] = $this->Accolade->isLikedBy($v['Accolade']['id'],$user_id);
+		}
+
 		$this->set(compact('articles','birthdays','hires','accolades'));
 	}
 	
