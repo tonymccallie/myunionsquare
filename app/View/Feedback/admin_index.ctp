@@ -20,7 +20,7 @@
 		<?php foreach($feedbacks as $feedback): ?>
 			<tr>
 				<td><?php echo $this->Html->link(Common::truncate($feedback['Feedback']['body'],100),array('action'=>'edit',$feedback['Feedback']['id'])) ?></td>
-				<td><?php echo date('y/m/d',strtotime($feedback['Feedback']['created'])) ?></td>
+				<td><?php echo date('m/d/Y',strtotime($feedback['Feedback']['created'])) ?></td>
 			</tr>
 		<?php endforeach ?>
 		</tbody>

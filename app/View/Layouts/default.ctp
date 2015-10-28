@@ -104,7 +104,7 @@
 			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/pages/messages',array('escape'=>false)) ?></li>
 			-->
 			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/users/directory',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/pages/resources',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/folders/resources',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/pages/resource',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/pages/board',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/pages/photos',array('escape'=>false)) ?></li>

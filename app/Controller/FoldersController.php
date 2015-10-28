@@ -1,12 +1,41 @@
 <?php
 App::uses('AppController', 'Controller');
 class FoldersController extends AppController {
+	
+	public function beforeRender() {
+		parent::beforeRender();
+		$categories = array(
+			1 => 'Resources',
+			2 => 'Board',
+			3 => 'Training',
+		);
+		$this->set('categories',$categories);
+	}
+	
+	public function view($id = null) {
+		
+	}
+	
 	public function board() {
 		
 	}
 	
 	public function resources() {
+		$conditions = array(
+			'Folder.category_id' => 1
+		);
 		
+		if(!empty($this->request->data['Folder']['search'])) {
+			$conditions['OR'] = array(
+				'Folder.title LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+			);
+		}
+		
+		$folders = $this->Folder->find('all',array(
+			'conditions' => $conditions
+		));
+		
+		$this->set(compact('folders'));
 	}
 	
 	public function training() {
@@ -23,6 +52,7 @@ class FoldersController extends AppController {
 		if(!empty($this->request->data['Folder']['search'])) {
 			$paginate['conditions']['OR'] = array(
 				'Folder.title LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+				'Folder.descr LIKE' => '%'.$this->request->data['Folder']['search'].'%',
 			);
 		}
 		
