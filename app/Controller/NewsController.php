@@ -1,11 +1,15 @@
 <?php
 App::uses('AppController', 'Controller');
 class NewsController extends AppController {
+	function like($article,$user) {
+		$this->News->like($article,$user);
+	}
+	
 	function admin_index() {
 		$paginate = array(
 			'conditions' => array(),
 			'contain' => array(
-				'User'
+				'User','Like'
 			)
 		);
 		
@@ -17,7 +21,8 @@ class NewsController extends AppController {
 		}
 		
 		$this->paginate = $paginate;
-		$this->set('articles', $this->paginate());
+		$articles = $this->paginate();
+		$this->set(compact('articles'));
 	}
 	
 	public function admin_add() {

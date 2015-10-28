@@ -162,7 +162,10 @@ class UsersController extends AppController {
 	function dashboard() {
 		$paginate = array(
 			'News' => array(
-				'limit' => 5
+				'limit' => 5,
+				'contain' => array(
+					'User','Like'
+				)
 			)
 		);
 		
