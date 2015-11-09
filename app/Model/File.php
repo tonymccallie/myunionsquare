@@ -7,6 +7,13 @@ class File extends AppModel {
 			'counterCache' => true
 		)
 	);
-	
+	var $validate = array(
+		'title' => array(
+			'ruleName' => array(
+				'rule' => array('notBlank'),
+				'message' => 'A Title is required'
+			)
+		),
+	);
 }
 ?>

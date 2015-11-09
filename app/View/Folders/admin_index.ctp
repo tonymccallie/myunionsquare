@@ -1,6 +1,6 @@
 <div class="admin_header">
 	<h3>
-		<i class="icon-edit"></i> Folders
+		<i class="icon-folder-open"></i> Folders
 		<div class="btn-group pull-right">
 			<?php echo $this->Html->link('<i class="icon-plus"></i> Add Folder', array('action' => 'add'),array('class'=>'btn','escape'=>false)); ?>
 		</div>
@@ -18,6 +18,9 @@
 					<?php echo $this->Paginator->sort('category_id','<i class="icon-sort"></i> Category',array('escape'=>false)); ?>
 				</th>
 				<th>
+					File Count
+				</th>
+				<th>
 					<?php echo $this->Paginator->sort('created','<i class="icon-sort"></i> Created',array('escape'=>false)); ?>
 				</th>
 			</tr>
@@ -25,8 +28,9 @@
 		<tbody>
 		<?php foreach($folders as $folder): ?>
 			<tr>
-				<td><?php echo $this->Html->link($folder['Folder']['title'],array('action'=>'edit',$folder['Folder']['id'])) ?></td>
+				<td><?php echo $this->Html->link($folder['Folder']['title'],array('action'=>'view',$folder['Folder']['id'])) ?></td>
 				<td><?php echo $categories[$folder['Folder']['category_id']] ?></td>
+				<td><?php echo $folder['Folder']['file_count'] ?></td>
 				<td><?php echo date('m/d/Y',strtotime($folder['Folder']['created'])) ?></td>
 			</tr>
 		<?php endforeach ?>

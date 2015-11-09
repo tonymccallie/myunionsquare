@@ -11,14 +11,14 @@
 			<div class="span6">
 				<?php
 					if(!$article['News']['liked']) {
-						echo $this->Html->link('<i class="icon-thumbs-up"></i>Like</a>','/news/like/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block','escape'=>false));
+						echo $this->Html->link('<i class="icon-thumbs-up"></i>Like</a>','/news/like/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like','escape'=>false));
 					} else {
-						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i>Unlike</a>','/news/dislike/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block','escape'=>false));
+						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i>Unlike</a>','/news/dislike/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like','escape'=>false));
 					}
 				?>
 			</div>
 			<div class="span6">
-				<a href="#" class="btn btn-block"><i class="icon-thumbs-up"></i>Comment</a>
+				<?php if($comment): ?><a href="#" class="btn btn-block"><i class="icon-thumbs-up"></i>Comment</a><?php endif ?>
 			</div>
 		</div>
 	</div>

@@ -163,6 +163,9 @@ class UsersController extends AppController {
 		$paginate = array(
 			'News' => array(
 				'limit' => 5,
+				'conditions' => array(
+					'News.category_id' => 1
+				),
 				'contain' => array(
 					'User','Like'
 				)
@@ -315,6 +318,11 @@ class UsersController extends AppController {
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
+		}
+		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+		$user = $this->User->find('first', $options);
+		if((!empty($user['User']['photo']))&&(file_exists($_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/'.$user['User']['photo']))) {
+			unlink($_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/'.$user['User']['photo']);
 		}
 		if ($this->User->delete()) {
 			$this->Session->setFlash('User deleted','success');

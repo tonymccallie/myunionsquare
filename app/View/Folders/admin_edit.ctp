@@ -1,6 +1,6 @@
 <div class="admin_header">
 	<h3>
-		<i class="icon-edit"></i> Folder
+		<i class="icon-folder-open"></i> Folder
 		<div class="btn-group pull-right">
 			<?php echo $this->Html->link('<i class="icon-trash"></i>', array('action' => 'delete',$this->data['Folder']['id']),array('class'=>'btn','escape'=>false),'Are you sure you want to delete this folder?'); ?>
 		</div>

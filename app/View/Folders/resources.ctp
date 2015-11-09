@@ -12,7 +12,7 @@
 			}
 	?>
 	<div class="span4 text-center">
-		<?php echo $this->Html->link($this->Html->image('folder-image.png').'<br>'.$folder['Folder']['title'].'<br><i>'.$folder['Folder']['file_count'].' Documents</i>','/pages/resource',array('escape'=>false)) ?>
+		<?php echo $this->Html->link($this->Html->image('folder-image.png').'<br>'.$folder['Folder']['title'].'<br><i>'.$folder['Folder']['file_count'].' Documents</i>',array('action'=>'view',$folder['Folder']['id']),array('escape'=>false)) ?>
 	</div>
 	<?php endforeach ?>
 </div>

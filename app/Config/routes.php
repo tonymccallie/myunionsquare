@@ -4,6 +4,7 @@
 	Router::connect('/', array('controller' => 'users', 'action' => 'login'));
 
 	Router::connect('/dashboard',array('controller'=>'users','action'=>'dashboard'));
+	Router::connect('/marketing',array('controller'=>'news','action'=>'marketing'));
 
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 

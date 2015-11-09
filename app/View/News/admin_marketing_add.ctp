@@ -1,6 +1,6 @@
 <div class="admin_header">
 	<h3>
-		<i class="icon-edit"></i> Add Announcement
+		<i class="icon-edit"></i> Add Post
 	</h3>
 </div>
 <div>
@@ -8,7 +8,7 @@
 	<div class="row-fluid">
 		<div class="span6">
 			<?php
-				echo $this->Form->input('category_id',array('value'=>1,'type'=>'hidden'));
+				echo $this->Form->input('category_id',array('value'=>2,'type'=>'hidden'));
 				echo $this->Form->input('title',array('class'=>'span12'));
 				echo $this->Form->input('image',array(
 					'type'=>'file',

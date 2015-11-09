@@ -13,9 +13,9 @@
 				<div class="span2">
 					<?php
 					if(!$accolade['Accolade']['liked']) {
-						echo $this->Html->link('<i class="icon-thumbs-up"></i><br />'.count($accolade['Like']).' likes</a>','/accolades/like/'.$accolade['Accolade']['id'].'/'.$USER['User']['id'],array('class'=>'highfive_like','escape'=>false));
+						echo $this->Html->link('<i class="icon-thumbs-up"></i><br />'.count($accolade['Like']).' likes</a>','/accolades/like/'.$accolade['Accolade']['id'].'/'.$USER['User']['id'],array('class'=>'highfive_like like','escape'=>false));
 					} else {
-						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i><br />'.count($accolade['Like']).' likes</a>','/accolades/dislike/'.$accolade['Accolade']['id'].'/'.$USER['User']['id'],array('class'=>'highfive_like','escape'=>false));
+						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i><br />'.count($accolade['Like']).' likes</a>','/accolades/dislike/'.$accolade['Accolade']['id'].'/'.$USER['User']['id'],array('class'=>'highfive_like like','escape'=>false));
 					}
 				?>
 				</div>

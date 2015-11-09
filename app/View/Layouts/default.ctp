@@ -54,6 +54,14 @@
 </head>
 
 <body class="">
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=165321740206477";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<div id="header" class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="left_col">
@@ -78,10 +86,12 @@
 						<ul class="dropdown-menu">
 							<li><?php echo $this->Html->link('Announcements','/admin/news') ?></li>
 							<li><?php echo $this->Html->link('Users','/admin/users') ?></li>
-							<li><?php echo $this->Html->link('Resources','/admin/folders') ?></li>
+							<li><?php echo $this->Html->link('Files/Folders','/admin/folders') ?></li>
+							<li><?php echo $this->Html->link('Galleries','/admin/galleries') ?></li>
 							<li><?php echo $this->Html->link('Greetings','/admin/greetings') ?></li>
 							<li><?php echo $this->Html->link('Feedback','/admin/feedback') ?></li>
 							<li><?php echo $this->Html->link('High Fives','/admin/accolades') ?></li>
+							<li><?php echo $this->Html->link('Marketing','/admin/news/marketing') ?></li>
 						</ul>
 					<?php else: ?>
 						<?php echo $this->Html->link('<i class="icon-desktop"></i><br>Website','http://www.unionsquare.org',array('escape'=>false)) ?>
@@ -100,13 +110,14 @@
 			<!--
 			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Announcements','/pages/announcements',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-calendar"></i> Calendar','/pages/calendar',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-comments-alt"></i> Message Board','/pages/messages',array('escape'=>false)) ?></li>
+			
 			-->
 			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/users/directory',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/folders/resources',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/pages/resource',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/folders/view/9',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/pages/board',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/pages/photos',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Marketing','/marketing',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/pages/helpdesk',array('escape'=>false)) ?></li>
 			<?php endif ?>
 		</ul>

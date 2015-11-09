@@ -7,25 +7,52 @@ class FoldersController extends AppController {
 		$categories = array(
 			1 => 'Resources',
 			2 => 'Board',
-			3 => 'Training',
 		);
 		$this->set('categories',$categories);
 	}
 	
 	public function view($id = null) {
+		$folder = $this->Folder->findById($id);
+		if(!$folder) {
+			$this->Session->setFlash('No folder with that id found','error');
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->set('title_for_layout',$folder['Folder']['title']);
 		
-	}
-	
-	public function board() {
-		
-	}
-	
-	public function resources() {
 		$conditions = array(
-			'Folder.category_id' => 1
+			'File.folder_id' => $id
 		);
 		
 		if(!empty($this->request->data['Folder']['search'])) {
+			$conditions['OR'] = array(
+				'File.title LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+				'File.descr LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+				'File.filename LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+			);
+		}
+		
+		$paginate = array(
+			'File'=>array(
+				'limit' => 20,
+				'conditions' => $conditions
+			),
+		);
+		
+		$this->paginate = $paginate;
+		$files = $this->paginate('File');
+		
+		$this->Folder->recursive = 0;
+		$folder = $this->Folder->findById($id);
+		$this->set(compact('folder','files'));
+	}
+	
+	public function board() {
+		$conditions = array(
+			'Folder.category_id' => 2
+		);
+		
+		if(!empty($this->request->data['Folder']['search'])) {
+			debug($this->request->data['Folder']['search']);
 			$conditions['OR'] = array(
 				'Folder.title LIKE' => '%'.$this->request->data['Folder']['search'].'%',
 			);
@@ -38,7 +65,45 @@ class FoldersController extends AppController {
 		$this->set(compact('folders'));
 	}
 	
-	public function training() {
+	public function resources() {
+		$conditions = array(
+			'Folder.category_id' => 1
+		);
+		
+		$folders = $this->Folder->find('all',array(
+			'conditions' => $conditions
+		));
+		
+		if(!empty($this->request->data['Folder']['search'])) {
+			$available_folders = Set::extract('/Folder/id',$folders);
+			$this->view = 'results';
+			$conditions['OR'] = array(
+				'Folder.title LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+			);
+			$this->paginate = array(
+				'File' => array(
+					'conditions' => array(
+						'File.folder_id' => $available_folders,
+						'OR' => array(
+							'File.title LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+							'File.descr LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+							'File.filename LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+						)
+					),
+					'order' => array(
+						'Folder.title' => 'asc'
+					)
+				)
+			);
+			
+			$files = $this->paginate('File');
+			$this->set(compact('files'));
+		}
+		
+		$this->set(compact('folders'));
+	}
+	
+	public function search() {
 		
 	}
 
@@ -86,6 +151,38 @@ class FoldersController extends AppController {
 			$options = array('conditions' => array('Folder.' . $this->Folder->primaryKey => $id));
 			$this->request->data = $this->Folder->find('first', $options);
 		}
+	}
+	
+	public function admin_view($id = null) {
+		if (!$this->Folder->exists($id)) {
+			throw new NotFoundException(__('Invalid folder'));
+		}
+		
+		$conditions = array(
+			'File.folder_id' => $id
+		);
+		
+		if(!empty($this->request->data['Folder']['search'])) {
+			$conditions['OR'] = array(
+				'File.title LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+				'File.descr LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+				'File.filename LIKE' => '%'.$this->request->data['Folder']['search'].'%',
+			);
+		}
+		
+		$paginate = array(
+			'File'=>array(
+				'limit' => 20,
+				'conditions' => $conditions
+			),
+		);
+		
+		$this->paginate = $paginate;
+		$files = $this->paginate('File');
+		
+		$this->Folder->recursive = 0;
+		$folder = $this->Folder->findById($id);
+		$this->set(compact('folder','files'));
 	}
 	
 	public function admin_delete($id = null) {

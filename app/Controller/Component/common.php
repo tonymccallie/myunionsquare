@@ -40,8 +40,11 @@ class Common {
  * @access public
  * @static
  */
-	static function slug($string) {
-		$string = strtolower(trim($string));
+	static function slug($string, $lower = true) {
+		$string = trim($string);
+		if($lower) {
+			$string = strtolower(trim($string));
+		}
 		$string = preg_replace('/[^a-z0-9-]/i', '-', $string); 
 		$string = preg_replace('/-[-]*/i', '-', $string);
 
@@ -347,5 +350,12 @@ class Common {
 		$wordlist = "anal|anus|arse|ass|ballsack|balls|bastard|bitch|biatch|bloody|blowjob|blow job|bollock|bollok|boner|boob|bugger|bum|butt|buttplug|clitoris|cock|coon|crap|cunt|damn|dick|dildo|dyke|fag|feck|fellate|fellatio|felching|fuck|f u c k|fudgepacker|fudge packer|flange|Goddamn|God damn|hell|homo|jerk|jizz|knobend|knob end|labia|lmao|lmfao|muff|nigger|nigga|omg|penis|piss|poop|prick|pube|pussy|queer|scrotum|sex|shit|s hit|sh1t|slut|smegma|spunk|tit|tosser|turd|twat|vagina|wank|whore|wtf";
 		return preg_replace("/\b($wordlist)\b/ie", 'preg_replace("/./","*","\\1")', $phrase);
 	}
+	
+	static function bytes($size, $precision = 2) { 
+		$base = log($size, 1024);
+		$suffixes = array('', 'k', 'M', 'G', 'T');   
+
+		return round(pow(1024, $base - floor($base)), $precision) . $suffixes[floor($base)];
+	} 
 }
 ?>

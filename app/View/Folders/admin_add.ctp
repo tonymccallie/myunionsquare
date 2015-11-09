@@ -1,6 +1,6 @@
 <div class="admin_header">
 	<h3>
-		<i class="icon-edit"></i> Folder
+		<i class="icon-folder-open"></i> Folder
 	</h3>
 </div>
 <div>
