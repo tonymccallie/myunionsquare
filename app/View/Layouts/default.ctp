@@ -115,8 +115,9 @@
 			<li><?php echo $this->Html->link('<i class="icon-group"></i> Directory','/users/directory',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/folders/resources',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/folders/view/9',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/pages/board',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/folders/board',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/pages/photos',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-tasks"></i> Classifieds','/classifieds',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Marketing','/marketing',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/pages/helpdesk',array('escape'=>false)) ?></li>
 			<?php endif ?>

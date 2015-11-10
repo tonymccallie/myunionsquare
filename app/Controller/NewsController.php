@@ -3,7 +3,20 @@ App::uses('AppController', 'Controller');
 class NewsController extends AppController {
 	function like($article,$user) {
 		$this->News->like($article,$user);
-		$this->redirect('/dashboard');
+		$news = $this->News->findById($article);
+		switch($news['News']['category_id']) {
+			case 2:
+				$this->redirect('/marketing');
+				break;
+			case 3:
+				$this->redirect('/classifieds');
+				break;
+			case 1:
+			default:
+				$this->redirect('/dashboard');
+				break;
+		}
+		
 	}
 	
 	function dislike($article,$user) {
@@ -32,6 +45,56 @@ class NewsController extends AppController {
 		}
 		
 		$this->set(compact('articles'));
+	}
+	
+	function classifieds() {
+		$this->set('title_for_layout','Classifieds');
+		$paginate = array(
+			'conditions' => array(
+				'News.category_id' => 3,
+				'News.created >' => date('Y-m-d',strtotime('-30 days'))
+			),
+			'contain' => array(
+				'User','Like'
+			)
+		);
+		
+		
+		$user_id = Authsome::get('User.id');
+		$this->paginate = $paginate;
+		$articles = $this->paginate();
+		
+		foreach($articles as $k=>$v) {
+			$articles[$k]['News']['liked'] = $this->News->isLikedBy($v['News']['id'],$user_id);
+		}
+		
+		$this->set(compact('articles'));
+	}
+	
+	function view($id = null) {
+		$article = $this->News->findById($id);
+		if(!$article) {
+			$this->Session->setFlash('There was no article with taht','success');
+			$this->redirect('/classifieds');
+		}
+		
+		$user_id = Authsome::get('User.id');
+		$article['News']['liked'] = $this->News->isLikedBy($article['News']['id'],$user_id);
+		
+		$this->set(compact('article'));
+	}
+	
+	public function add() {
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$this->request->data['News']['user_id'] = Authsome::get('id');
+			$this->request->data['News']['body'] = Common::filter($this->request->data['News']['body']);
+			if ($this->News->save($this->request->data)) {
+				$this->Session->setFlash('The post has been saved','success');
+				$this->redirect('/classifieds');
+			} else {
+				$this->Session->setFlash('The post could not be saved. Please, try again.','error');
+			}
+		}
 	}
 	
 	function admin_index() {

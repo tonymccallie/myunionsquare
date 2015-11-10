@@ -5,6 +5,7 @@
 
 	Router::connect('/dashboard',array('controller'=>'users','action'=>'dashboard'));
 	Router::connect('/marketing',array('controller'=>'news','action'=>'marketing'));
+	Router::connect('/classifieds',array('controller'=>'news','action'=>'classifieds'));
 
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 

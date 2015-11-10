@@ -190,7 +190,9 @@ class UsersController extends AppController {
 		
 		$user_id = Authsome::get('User.id');
 		
+		$this->paginate = $paginate;
 		$articles = $this->paginate('News');
+		
 		foreach($articles as $k=>$v) {
 			$articles[$k]['News']['liked'] = $this->News->isLikedBy($v['News']['id'],$user_id);
 		}
