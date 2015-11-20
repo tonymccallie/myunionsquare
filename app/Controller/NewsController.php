@@ -146,7 +146,7 @@ class NewsController extends AppController {
 			$this->request->data['News']['user_id'] = Authsome::get('id');
 			if(!$this->request->data['News']['image']['error'] == 4) {
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/';
-				$filename = date('Y.m.d_His').'_news_'.$this->request->data['News']['image']['name'];
+				$filename = 'news_'.date('Y.m.d_His').'_'.$this->request->data['News']['image']['name'];
 				move_uploaded_file($this->request->data['News']['image']['tmp_name'], $targetPath.$filename);
 				$this->request->data['News']['photo'] = $filename;
 			}
@@ -164,7 +164,7 @@ class NewsController extends AppController {
 			$this->request->data['News']['user_id'] = Authsome::get('id');
 			if(!$this->request->data['News']['image']['error'] == 4) {
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/';
-				$filename = date('Y.m.d_His').'_news_'.$this->request->data['News']['image']['name'];
+				$filename = 'news_'.date('Y.m.d_His').'_'.$this->request->data['News']['image']['name'];
 				move_uploaded_file($this->request->data['News']['image']['tmp_name'], $targetPath.$filename);
 				$this->request->data['News']['photo'] = $filename;
 			}
@@ -184,7 +184,7 @@ class NewsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if(!$this->request->data['News']['image']['error'] == 4) {
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/';
-				$filename = date('Y.m.d_His').'_news_'.$this->request->data['News']['image']['name'];
+				$filename = 'news_'.date('Y.m.d_His').'_'.$this->request->data['News']['image']['name'];
 				move_uploaded_file($this->request->data['News']['image']['tmp_name'], $targetPath.$filename);
 				$this->request->data['News']['photo'] = $filename;
 			}
@@ -207,7 +207,7 @@ class NewsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if(!$this->request->data['News']['image']['error'] == 4) {
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/';
-				$filename = date('Y.m.d_His').'_news_'.$this->request->data['News']['image']['name'];
+				$filename = 'news_'.date('Y.m.d_His').'_'.$this->request->data['News']['image']['name'];
 				move_uploaded_file($this->request->data['News']['image']['tmp_name'], $targetPath.$filename);
 				$this->request->data['News']['photo'] = $filename;
 			}

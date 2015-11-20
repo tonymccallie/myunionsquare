@@ -266,7 +266,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if(!$this->request->data['User']['image']['error'] == 4) {
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/';
-				$filename = date('Y.m.d_His').'_user_'.$this->request->data['User']['image']['name'];
+				$filename = 'user_'.date('Y.m.d_His').'_'.$this->request->data['User']['image']['name'];
 				move_uploaded_file($this->request->data['User']['image']['tmp_name'], $targetPath.$filename);
 				$this->request->data['User']['photo'] = $filename;
 			}
@@ -293,7 +293,7 @@ class UsersController extends AppController {
 			}
 			if(!$this->request->data['User']['image']['error'] == 4) {
 				$targetPath = $_SERVER['DOCUMENT_ROOT'] . $this->webroot . 'app/webroot/uploads/';
-				$filename = date('Y.m.d_His').'_user_'.$this->request->data['User']['image']['name'];
+				$filename = 'user_'.date('Y.m.d_His').'_'.$this->request->data['User']['image']['name'];
 				move_uploaded_file($this->request->data['User']['image']['tmp_name'], $targetPath.$filename);
 				$this->request->data['User']['photo'] = $filename;
 			}

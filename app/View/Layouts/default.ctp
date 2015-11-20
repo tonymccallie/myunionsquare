@@ -35,6 +35,7 @@
 	<script src="<?php echo $this->webroot ?>js/jquery-1.10.2.min.js"></script>
 	<script src="<?php echo $this->webroot ?>js/bootstrap.min.js"></script>
 	<script src="<?php echo $this->webroot ?>js/moment.min.js"></script>
+	<script src="<?php echo $this->webroot ?>js/jquery.prettyPhoto.js"></script>
 	<script src="<?php echo $this->webroot ?>js/custom.js"></script>
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -116,7 +117,7 @@
 			<li><?php echo $this->Html->link('<i class="icon-folder-open"></i> Resources','/folders/resources',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-random"></i> Training','/folders/view/9',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-legal"></i> Board','/folders/board',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/pages/photos',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/galleries/',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-tasks"></i> Classifieds','/classifieds',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Marketing','/marketing',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/pages/helpdesk',array('escape'=>false)) ?></li>
