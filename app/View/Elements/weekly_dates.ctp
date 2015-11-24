@@ -31,7 +31,8 @@
 						<?php echo $hire['User']['first_name'].' '.$hire['User']['last_name'] ?>
 					</div>
 					<div class="birthday-date">
-						<?php echo date('l - n/j',strtotime($hire['User']['hire_date'])) ?>
+						<?php echo date('l - n/j',strtotime($hire['User']['hire_date'])) ?><br />
+						<?php echo (date('Y') - date('Y',strtotime($hire['User']['hire_date']))) ?> years
 					</div>
 				</div>
 				<div class="birthday-like"><i class="icon-thumbs-up-alt"></i><br>22 likes</div>
