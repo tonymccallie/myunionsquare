@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>My Union Square: <?php echo $title_for_layout ?></title>
+	<title>Team Union Square: <?php echo $title_for_layout ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
