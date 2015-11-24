@@ -120,7 +120,7 @@
 			<li><?php echo $this->Html->link('<i class="icon-camera-retro"></i> Photos','/galleries/',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-tasks"></i> Classifieds','/classifieds',array('escape'=>false)) ?></li>
 			<li><?php echo $this->Html->link('<i class="icon-bullhorn"></i> Marketing','/marketing',array('escape'=>false)) ?></li>
-			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','/pages/helpdesk',array('escape'=>false)) ?></li>
+			<li><?php echo $this->Html->link('<i class="icon-user-md"></i> Help Desk','https://unionsquarehelp.zendesk.com',array('escape'=>false,'target'=>'_blank')) ?></li>
 			<?php endif ?>
 		</ul>
 		<?php if($loggedIn): ?>
