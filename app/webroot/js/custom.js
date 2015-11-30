@@ -1,3 +1,4 @@
+var testvar = null;
 $(document).ready(function() {
 	$('.dropdown-toggle').dropdown();
 	$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({
@@ -10,8 +11,11 @@ $(document).ready(function() {
 	});
 	
 	$('#bank_login').submit(function(e) {
-		//e.preventDefault();
-		//$(this).submit();
-		$('#UserIDTextbox').val('');
+		var self = this;
+		e.preventDefault();
+		self.submit()
+		setTimeout(function() {
+			$('#UserIDTextbox').val('');
+		}, 1000);
 	});
 });
