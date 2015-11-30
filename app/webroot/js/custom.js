@@ -8,4 +8,10 @@ $(document).ready(function() {
 		social_tools:'',
 		show_title:false
 	});
+	
+	$('#bank_login').submit(function(e) {
+		e.preventDefault();
+		$(this).submit();
+		$('#UserIDTextbox').val('');
+	});
 });

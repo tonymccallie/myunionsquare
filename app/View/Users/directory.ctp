@@ -9,7 +9,7 @@
 			echo $this->Form->end();
 		?>
 	</div>
-	<table class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered gallery">
 		<thead>
 			<tr>
 				<th style="width:90px;">Photo</th>
@@ -29,7 +29,7 @@
 		<?php foreach($users as $user): ?>
 			<tr>
 				<td>
-					<?php echo !empty($user['User']['photo'])?$this->Html->image('thumb/'.$user['User']['photo'].'/width:200/height:200/crop:true/zoom:auto/'.$user['User']['photo'],array('class'=>'img-circle')):'' ?>
+					<?php echo !empty($user['User']['photo'])?$this->Html->link($this->Html->image('thumb/'.$user['User']['photo'].'/width:200/height:200/crop:true/zoom:auto/'.$user['User']['photo'],array('class'=>'img-circle')),Common::currentUrl().'img/thumb/'.$user['User']['photo'],array('escape'=>false,'rel'=>'prettyPhoto[directory]')):'' ?>
 				</td>
 				<td><?php echo $user['User']['first_name'].' '.$user['User']['last_name'] ?></td>
 				<td><?php echo $user['User']['email'] ?></td>

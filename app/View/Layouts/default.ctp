@@ -14,7 +14,7 @@
 	<meta name="author" content="">
 
 <?php
-	$develop = true;
+	$develop = false;
 	if($develop):
 ?>
 	<link rel="stylesheet/less" type="text/css" href="<?php echo $this->webroot ?>css/styles.less" />
@@ -128,7 +128,45 @@
 				<?php echo $this->Html->link('The Open Door','/feedback/add',array('class'=>'btn')) ?>
 			</div>
 			<div class="bank_login">
-				<form method="post" action="https://olb.usfcu.us/ISuite5/Features/Auth/MFA/IFrameLoginMFA.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1" target="_blank" class="form-search">
+				<script src="https://olb.usfcu.us/ISuite5/WebResource.axd?d=-S_se-ehAlSMovar6cLB8u34sXQFVyD27caZSbxFaOLCT_Tf_-Xa6hnVkbSUMHLQzjA6ciOttsSHAz-7a3AnS9TCRGs1&amp;t=634894094427465149" type="text/javascript"></script>
+
+
+				<script src="https://olb.usfcu.us/ISuite5/Features/Auth/MFA/RSAMFA6/pm_fp.js" type="text/javascript"></script>
+				<script src="https://olb.usfcu.us/ISuite5/Features/Auth/MFA/Flash/AC_OETags.js" type="text/javascript"></script>
+				<script src="https://olb.usfcu.us/ISuite5/Features/Auth/MFA/Flash/FlashLib.js" type="text/javascript"></script>
+				<script src="https://olb.usfcu.us/ISuite5/Controls/Button.js" type="text/javascript"></script>
+				<script src="https://olb.usfcu.us/ISuite5/WebResource.axd?d=X0us_b_EMsIh5KbnSznWn8kugVJguisCtRXfMzEZ1WfCQ2iOmb52O7__ASJ082k4MbCs6tH75Hbb7bi48i7AgSdHejk1&amp;t=634894094427465149" type="text/javascript"></script>
+				<script type="text/javascript">
+				//<![CDATA[
+				function WebForm_OnSubmit() {
+				document.forms[0].LoginJSDetector.value = 'JSFound';
+				
+				try{
+				if (typeof(UISButton_OnSubmitOperation) == "function" && UISButton_OnSubmitOperation(UISButton_List) == false)
+					return false;
+				}
+				catch(err)
+				{};
+				
+				 var doubleBlockerHiddenField = document.getElementById('IS5_2PostFixer'); 
+				 if (doubleBlockerHiddenField != null) { 
+				    if (doubleBlockerHiddenField.value != '1') {
+				       var MsgSwitchField = document.getElementById('IS5_2PostMsg');
+				       if (MsgSwitchField == null || MsgSwitchField.value == '1')
+				          alert ('Please wait until your previous request completes.');
+				       return false; 
+				    }
+				    else {
+				       doubleBlockerHiddenField.value = '0';
+				    }
+				 };
+				
+				
+				return true;
+				}
+				//]]>
+				</script>
+				<form id="bank_login" method="post" action="https://olb.usfcu.us/ISuite5/Features/Auth/MFA/IFrameLoginMFA.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1" target="_blank" class="form-search">
 					<input type="hidden" name="LoginJSDetector" id="LoginJSDetector" value="" />
 					<input type="hidden" name="pm_fp" id="pm_fp" value="" />
 					<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
