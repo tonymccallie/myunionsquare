@@ -10,8 +10,8 @@ $(document).ready(function() {
 	});
 	
 	$('#bank_login').submit(function(e) {
-		e.preventDefault();
-		$(this).submit();
+		//e.preventDefault();
+		//$(this).submit();
 		$('#UserIDTextbox').val('');
 	});
 });
