@@ -110,3 +110,5 @@ CakeLog::config('error', array(
 CakePlugin::load('DebugKit');
 require_once(APP . 'Controller' . DS . 'Component' . DS .'common.php');
 CakePlugin::load('Like', array('routes' => true));
+CakePlugin::load('Migrations');
+CakePlugin::load('Comments');

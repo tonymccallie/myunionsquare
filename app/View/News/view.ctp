@@ -6,6 +6,10 @@
 <div class="row-fluid">
 	<div class="span8">
 		<?php echo str_replace("\n","<br />",$article['News']['body']) ?>
+		<div id="post-comments">
+			<?php $this->CommentWidget->options(array('allowAnonymousComment' => false));?>
+			<?php echo $this->CommentWidget->display();?>
+		</div>
 	</div>
 	<div class="span4">
 		<div class="well">

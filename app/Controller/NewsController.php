@@ -1,6 +1,12 @@
 <?php
 App::uses('AppController', 'Controller');
 class NewsController extends AppController {
+	public $components = array(
+        'Comments.Comments' => array(
+            'userModelClass' => 'User' // Customize the User class
+        )
+    );
+
 	function like($article,$user) {
 		Configure::write('debug', 2);
 		$this->layout = "ajax";
