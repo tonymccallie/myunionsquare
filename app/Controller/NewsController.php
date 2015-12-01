@@ -2,26 +2,19 @@
 App::uses('AppController', 'Controller');
 class NewsController extends AppController {
 	function like($article,$user) {
+		Configure::write('debug', 2);
+		$this->layout = "ajax";
+		$this->view = "ajax";
 		$this->News->like($article,$user);
-		$news = $this->News->findById($article);
-		switch($news['News']['category_id']) {
-			case 2:
-				$this->redirect('/marketing');
-				break;
-			case 3:
-				$this->redirect('/classifieds');
-				break;
-			case 1:
-			default:
-				$this->redirect('/dashboard');
-				break;
-		}
-		
+		echo json_encode(array('STATUS'=>'SUCCESS'));
 	}
 	
 	function dislike($article,$user) {
+		Configure::write('debug', 2);
+		$this->layout = "ajax";
+		$this->view = "ajax";
 		$this->News->dislike($article,$user);
-		$this->redirect('/dashboard');
+		echo json_encode(array('STATUS'=>'SUCCESS'));
 	}
 	
 	function marketing() {

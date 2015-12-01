@@ -1,3 +1,6 @@
 [submodule "app/Plugin/Like"]
 	path = app/Plugin/Like
 	url = git://github.com/aschelch/cakephp-like-plugin.git
+[submodule "app/Plugin/Comments"]
+	path = app/Plugin/Comments
+	url = git@github.com:CakeDC/comments.git

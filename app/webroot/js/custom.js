@@ -18,4 +18,27 @@ $(document).ready(function() {
 			$('#UserIDTextbox').val('');
 		}, 1000);
 	});
+	
+	$('.like').click(function(e) {
+		href = this.href;
+		rel = this.rel;
+		count = $('#'+rel);
+		self = $(this);
+		self.css('cursor','wait');
+		$.getJSON(href,function(data) {
+			if(self.hasClass('unlike')) {
+				count.html(parseInt(count.html())-1);
+				href = href.replace('dislike','like');
+				self.removeClass('unlike').html('<i class="icon-thumbs-up"></i>Like</a>').attr('href',href);
+				
+			} else {
+				count.html(parseInt(count.html())+1);
+				href = href.replace('like','dislike');
+				self.addClass('unlike').html('<i class="icon-thumbs-up-alt"></i>Unlike</a>').attr('href',href);
+				
+			}
+			self.css('cursor','default');
+		});
+		e.preventDefault();
+	})
 });
