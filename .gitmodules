@@ -4,3 +4,6 @@
 [submodule "app/Plugin/Comments"]
 	path = app/Plugin/Comments
 	url = git@github.com:CakeDC/comments.git
+[submodule "app/Plugin/Migrations"]
+	path = app/Plugin/Migrations
+	url = git@github.com:CakeDC/migrations.git
