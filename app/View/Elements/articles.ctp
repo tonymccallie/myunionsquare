@@ -6,14 +6,14 @@
 	<div class="span8">
 		<h4><?php echo $this->Html->link($article['News']['title'],array('controller'=>'news','action'=>'view',$article['News']['id'])) ?></h4>
 		<p><?php echo str_replace("\n","<br />",$article['News']['body']) ?></p>
-		<div><i>By: <?php echo $article['User']['first_name'].' '.$article['User']['last_name'] ?> - <?php echo date('M dS',strtotime($article['News']['created'])) ?> (<span id="article_<?php echo $article['News']['id'] ?>"><?php echo count($article['Like']) ?></span> likes)</i></div><br>
+		<div><i>By: <?php echo $article['User']['first_name'].' '.$article['User']['last_name'] ?> - <?php echo date('M dS',strtotime($article['News']['created'])) ?></i></div><br>
 		<div class="row-fluid">
 			<div class="span6">
 				<?php
 					if(!$article['News']['liked']) {
-						echo $this->Html->link('<i class="icon-thumbs-up"></i>Like</a>','/news/like/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like','escape'=>false, 'rel' => 'article_'.$article['News']['id']));
+						echo $this->Html->link('<i class="icon-thumbs-up"></i> Like ('.count($article['Like']).')</a>','/news/like/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like','escape'=>false));
 					} else {
-						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i>Unlike</a>','/news/dislike/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like unlike','escape'=>false, 'rel' => 'article_'.$article['News']['id']));
+						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i> Unlike ('.count($article['Like']).')</a>','/news/dislike/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like unlike','escape'=>false));
 					}
 				?>
 			</div>

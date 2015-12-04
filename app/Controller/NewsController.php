@@ -2,9 +2,12 @@
 App::uses('AppController', 'Controller');
 class NewsController extends AppController {
 	public $components = array(
+		'Paginator',
+/*
         'Comments.Comments' => array(
             'userModelClass' => 'User' // Customize the User class
-        )
+        ),
+*/
     );
 
 	function like($article,$user) {
@@ -12,7 +15,13 @@ class NewsController extends AppController {
 		$this->layout = "ajax";
 		$this->view = "ajax";
 		$this->News->like($article,$user);
-		echo json_encode(array('STATUS'=>'SUCCESS'));
+		$count = $this->News->Like->find('count',array(
+			'conditions' => array(
+				'Like.model' => 'News',
+				'Like.foreign_id' => $article
+			)
+		));
+		echo $count;
 	}
 	
 	function dislike($article,$user) {
@@ -20,7 +29,13 @@ class NewsController extends AppController {
 		$this->layout = "ajax";
 		$this->view = "ajax";
 		$this->News->dislike($article,$user);
-		echo json_encode(array('STATUS'=>'SUCCESS'));
+		$count = $this->News->Like->find('count',array(
+			'conditions' => array(
+				'Like.model' => 'News',
+				'Like.foreign_id' => $article
+			)
+		));
+		echo $count;
 	}
 	
 	function marketing() {
@@ -71,16 +86,26 @@ class NewsController extends AppController {
 	}
 	
 	function view($id = null) {
-		$article = $this->News->findById($id);
-		if(!$article) {
+		$news = $this->News->find('first', array(
+			'conditions'=> array(
+				'News.id' => $id
+			),
+			'contain' => array(
+				'Like',
+				'Comment' => array(
+					'User'
+				)
+			)
+		));
+		if(!$news) {
 			$this->Session->setFlash('There was no article with taht','success');
 			$this->redirect('/classifieds');
 		}
 		
 		$user_id = Authsome::get('User.id');
-		$article['News']['liked'] = $this->News->isLikedBy($article['News']['id'],$user_id);
+		$news['News']['liked'] = $this->News->isLikedBy($news['News']['id'],$user_id);
 		
-		$this->set(compact('article'));
+		$this->set(compact('news'));
 	}
 	
 	public function add() {
