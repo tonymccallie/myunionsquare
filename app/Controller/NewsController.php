@@ -91,7 +91,7 @@ class NewsController extends AppController {
 				'News.id' => $id
 			),
 			'contain' => array(
-				'Like',
+				'Like','User',
 				'Comment' => array(
 					'User'
 				)

@@ -12,14 +12,14 @@
 			<div class="span6">
 				<?php
 					if(!$article['News']['liked']) {
-						echo $this->Html->link('<i class="icon-thumbs-up"></i>Like</a>','/news/like/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like','escape'=>false));
+						echo $this->Html->link('<i class="icon-thumbs-up"></i> Like ('.count($article['Like']).')</a>','/news/like/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like','escape'=>false));
 					} else {
-						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i>Unlike</a>','/news/dislike/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like','escape'=>false));
+						echo $this->Html->link('<i class="icon-thumbs-up-alt"></i> Unlike ('.count($article['Like']).')</a>','/news/dislike/'.$article['News']['id'].'/'.$USER['User']['id'],array('class'=>'btn btn-block like','escape'=>false));
 					}
 				?>
 			</div>
 			<div class="span6">
-				<a href="#" class="btn btn-block"><i class="icon-thumbs-up"></i>Comment</a>
+				<?php echo $this->Html->link('<i class="icon-thumbs-up"></i>Comment',array('controller'=>'news','action'=>'view',$article['News']['id']),array('escape'=>false,'class'=>'btn btn-block')); ?>
 			</div>
 		</div>
 	</div>

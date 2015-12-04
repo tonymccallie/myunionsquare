@@ -2,6 +2,7 @@
 	<h3>
 		<?php echo $news['News']['title'] ?>
 	</h3>
+	<b><i><?php echo $news['User']['first_name'].' '.$news['User']['last_name'] ?> - <?php echo date('M dS, h:ia',strtotime($news['News']['created'])) ?></i></b>
 </div>
 <div class="row-fluid">
 	<div class="span8">
