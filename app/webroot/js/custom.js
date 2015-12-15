@@ -36,5 +36,26 @@ $(document).ready(function() {
 			self.css('cursor','default');
 		});
 		e.preventDefault();
-	})
+	});
+	getWeather();
+	setInterval(getWeather, 300000);
+	
 });
+
+function getWeather() {
+	$.simpleWeather({
+		location: 'Wichita Falls, TX',
+		woeid: '',
+		unit: 'f',
+		success: function(weather) {
+			console.log(weather);
+			if(weather.wind.speed === "") {
+				weather.wind.speed = "0";
+			} 
+			$("#simple_weather").html('CURRENT WEATHER: '+weather.temp+'&deg;  '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed);
+		},
+		error: function(error) {
+			$("#simple_weather").html('<p>'+error+'</p>');
+		}
+	});
+}

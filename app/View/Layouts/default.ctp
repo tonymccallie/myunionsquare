@@ -36,6 +36,7 @@
 	<script src="<?php echo $this->webroot ?>js/bootstrap.min.js"></script>
 	<script src="<?php echo $this->webroot ?>js/moment.min.js"></script>
 	<script src="<?php echo $this->webroot ?>js/jquery.prettyPhoto.js"></script>
+	<script src="<?php echo $this->webroot ?>js/jquery.simpleWeather.min.js"></script>
 	<script src="<?php echo $this->webroot ?>js/custom.js"></script>
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -124,6 +125,7 @@
 			<?php endif ?>
 		</ul>
 		<?php if($loggedIn): ?>
+			<div id="simple_weather" class="text-center"></div>
 			<div class="text-center open_door">
 				<?php echo $this->Html->link('The Open Door','/feedback/add',array('class'=>'btn')) ?>
 			</div>
