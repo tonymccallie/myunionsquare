@@ -48,7 +48,6 @@ function getWeather() {
 		woeid: '',
 		unit: 'f',
 		success: function(weather) {
-			console.log(weather);
 			if(weather.wind.speed === "") {
 				weather.wind.speed = "0";
 			} 
