@@ -40,6 +40,25 @@ $(document).ready(function() {
 	getWeather();
 	setInterval(getWeather, 300000);
 	
+	$('a').bind('click',function(e) {
+		self = this;
+		var href = $(this).attr('href');
+		var hostname = self.hostname;
+		hostname = hostname.replace('www.','');
+		if(href.substr(0,1) != '/' && href.substr(0,1) != '#' && href.substr(0,1) != 'j') {
+			switch(hostname) {
+				case 'team.unionsquare.org':
+					break;
+				default:
+					if(isApp) {
+						//e.preventDefault();
+						//console.log(electron);
+					}
+					
+					break;
+			}
+		}
+	});
 });
 
 function getWeather() {
